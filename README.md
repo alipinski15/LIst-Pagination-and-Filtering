@@ -1,2 +1,2 @@
-# LIst Pagination and Filtering
+# List Pagination and Filtering
  
