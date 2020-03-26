@@ -16,39 +16,43 @@ FSJS project 2 - List Filter and Pagination
    will only be used inside of a function, then it can be locally 
    scoped to that function.
 ***/
-const student_list = document.querySelector('.student-list');
+const student_list = document.getElementsByClassName('student-item cf');
 const students_per_page = 10;
 
 
 
-function show_page(list, page){
-   start_index = (page * students_per_page) - students_per_page;
-   end_index =(page * students_per_page);
-   for(let i = 0; i < student_list.length; i += 1){
-      let show_on_page = student_list[i];
-      if (student_list >= start_index && student_list <= end_index){
-         return show_on_page;
+const show_page = (list, page) =>{
+   const start_index = (page * students_per_page) - students_per_page;
+   const end_index = page * students_per_page;
+   for(let i = 0; i < list.length; i++){
+      if ( i >= start_index && i <= end_index){
+         list[i].style.display = '';
+      } else {
+         list[i].style.display = 'none'
       }
    }
 }
-show_page(students_list, 1);
-/*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
+show_page(student_list, 1);
 
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
-***/
+const append_page_links = (list) => {
+    const page_list = Math.ceil(list.length / students_per_page);
+    const create_li = page_list.length;
+    const page_div = document.querySelector('.page');
+    const new_div = document.createElement('div');
+    const ul = document.createElement('ul');
+    new_div.className = 'pagination';
+    page_div.appendChild(new_div);
+    new_div.appendChild(ul);
+    
+    
+    for(let i = 0; i < create_li; i++){
+      create_li[i] = document.createElement('li');
+      console.log(create_li);
+    }
+   
+} 
 
-
-
+append_page_links(student_list);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
