@@ -45,9 +45,10 @@ const append_page_links = (list) => {
          anchor.className = 'active';
       }
    }
+   
 } 
 
-console.log(append_page_links(student_list));
+append_page_links(student_list);
 
 
 
