@@ -3,24 +3,12 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
    
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
-/*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
-***/
+//Global variables 
 const student_list = document.getElementsByClassName('student-item cf');
 const students_per_page = 10;
 
 
-
+// Function created to filter through the list of Students and set only 10 to be viewed per page.
 const show_page = (list, page) =>{
    const start_index = (page * students_per_page) - students_per_page;
    const end_index = page * students_per_page;
@@ -34,6 +22,7 @@ const show_page = (list, page) =>{
 }
 show_page(student_list, 1);
 
+//Function to create New Elements to be appended to the DOM.
 const append_page_links = (list) => {
     const page_list = Math.ceil(list.length / students_per_page);
     const create_li = page_list.length;
@@ -43,7 +32,8 @@ const append_page_links = (list) => {
     new_div.className = 'pagination';
     page_div.appendChild(new_div);
     new_div.appendChild(ul);
-    
+
+//This loop creates an 'LI' element for every 10 students. Sets an Anchor with the 'href' of '#' and a page number.     
     for(let i = 0; i < create_li; i++){
       let li = document.createElement('li');
       li = create_li[i];
@@ -57,15 +47,10 @@ const append_page_links = (list) => {
    }
 } 
 
-append_page_links(student_list);
-
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
+console.log(append_page_links(student_list));
 
 
 
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+
