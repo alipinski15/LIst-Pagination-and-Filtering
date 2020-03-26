@@ -44,12 +44,17 @@ const append_page_links = (list) => {
     page_div.appendChild(new_div);
     new_div.appendChild(ul);
     
-    
     for(let i = 0; i < create_li; i++){
-      create_li[i] = document.createElement('li');
-      console.log(create_li);
-    }
-   
+      let li = document.createElement('li');
+      li = create_li[i];
+      let anchor = document.createElement('a');
+      anchor.setAttribute('href', '#');
+      anchor.textContent = i + 1;
+      li.appendChild(a);
+      if(i === 0){
+         anchor.className = 'active';
+      }
+   }
 } 
 
 append_page_links(student_list);
