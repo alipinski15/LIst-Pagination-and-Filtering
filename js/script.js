@@ -43,6 +43,7 @@ const append_page_links = (list) => {
       if(i === 0){
          anchor.className = 'active';
       }
+// Creates clickable page Buttons. Based on the amount of students, each page will display the appropriate amount needed. 
       anchor.addEventListener('click', (e) => {
          const li_active = document.querySelector('.pagination a');
          for(let j = 0; j < li_active.length; j++){
@@ -51,9 +52,7 @@ const append_page_links = (list) => {
          e.target.className = 'active';
          show_page(student_list, e.target.textContent);
       });
-      
    }
-   
 } 
 show_page(student_list, 1);
 append_page_links(student_list);
