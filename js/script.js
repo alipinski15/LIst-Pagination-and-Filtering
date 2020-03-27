@@ -20,7 +20,7 @@ const show_page = (list, page) =>{
       }
    }
 }
-show_page(student_list, 1);
+
 
 //Function to create New Elements to be appended to the DOM.
 const append_page_links = (list) => {
@@ -42,10 +42,10 @@ const append_page_links = (list) => {
       if(i === 0){
          anchor.className = 'active';
       }
-      anchor.addEventListener('click', (e) => {
-         let li_active = document.getElementsByClassName('active');
-         for(let j = 0; j < anchor.length; j++){
-            li_active.className.remove('active');
+      new_div.addEventListener('click', (e) => {
+         const li_active = document.querySelector('.pagination');
+         for(let j = 0; j < li_active.length; j++){
+            li_active[j].className.remove('active');
          } 
          e.target.className.add('active');
       });
@@ -53,7 +53,7 @@ const append_page_links = (list) => {
    }
    
 } 
-
+show_page(student_list, 1);
 append_page_links(student_list);
 
 
