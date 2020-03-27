@@ -39,15 +39,17 @@ const append_page_links = (list) => {
       anchor.setAttribute('href', '#');
       anchor.textContent = i + 1;
       li.appendChild(anchor);
+      ul.appendChild(li);
       if(i === 0){
          anchor.className = 'active';
       }
-      new_div.addEventListener('click', (e) => {
-         const li_active = document.querySelector('.pagination');
+      anchor.addEventListener('click', (e) => {
+         const li_active = document.querySelector('.pagination a');
          for(let j = 0; j < li_active.length; j++){
-            li_active[j].className.remove('active');
+            li_active[j].classList.remove('active');
          } 
-         e.target.className.add('active');
+         e.target.className = 'active';
+         show_page(student_list, e.target.textContent);
       });
       
    }
