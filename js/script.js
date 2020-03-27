@@ -45,15 +45,17 @@ const append_page_links = (list) => {
       }
 // Creates clickable page Buttons. Based on the amount of students, each page will display the appropriate amount needed. 
       anchor.addEventListener('click', (e) => {
-         const li_active = document.querySelector('.pagination a');
+         const li_active = document.querySelectorAll('.pagination a');
          for(let j = 0; j < li_active.length; j++){
             li_active[j].classList.remove('active');
          } 
          e.target.className = 'active';
          show_page(student_list, e.target.textContent);
+         e.preventDefault();
       });
    }
 } 
+// Calls the two functions and passes into them the list of students. 
 show_page(student_list, 1);
 append_page_links(student_list);
 
