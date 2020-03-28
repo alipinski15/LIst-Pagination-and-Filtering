@@ -73,7 +73,7 @@ const search_button = document.createElement('button');
 search_button.textContent = 'Search';
 search_div.appendChild(search_button);
 
-const search_results = [];
+
 
 const student_search = (searchInput, names) => {
    const search_results = [];
