@@ -24,7 +24,7 @@ const show_page = (list, page) =>{
 
 //Function to create New Elements to be appended to the DOM.
 const append_page_links = (list) => {
-    const page_list = Math.ceil(student_list.length / students_per_page);
+    const page_list = Math.ceil(list.length / students_per_page);
     const page_div = document.querySelector('.page');
     const new_div = document.createElement('div');
     const ul = document.createElement('ul');
@@ -61,40 +61,56 @@ const append_page_links = (list) => {
 show_page(student_list, 1);
 append_page_links(student_list);
 
+//Function that creates the Search input box and Search button and appends them to the DOM. 
+const search_bar = () => {
+   const page_header = document.querySelector('.page-header');
+   const search_div = document.createElement('div');
+   search_div.className = 'student-search';
+   page_header.appendChild(search_div);
+   const search_input = document.createElement('input');
+   search_input.setAttribute('placeholder', 'Search for Students...')
+   search_div.appendChild(search_input);
+   const search_button = document.createElement('button');
+   search_button.textContent = 'Search';
+   search_div.appendChild(search_button);
+}
 
-const page_header = document.querySelector('.page-header');
-const search_div = document.createElement('div');
-search_div.className = 'student-search';
-page_header.appendChild(search_div);
-const search_input = document.createElement('input');
-search_input.setAttribute('placeholder', 'Search for Students...')
-search_div.appendChild(search_input);
-const search_button = document.createElement('button');
-search_button.textContent = 'Search';
-search_div.appendChild(search_button);
+search_bar();
 
+//These global variables targeting the Search button & the search Input. 
+const button = document.querySelector('.student-search button');
+const search = document.querySelector('.student-search input');
 
-
+//Function that allows for the search of names and only displays those names.
 const student_search = (searchInput, names) => {
    const search_results = [];
-
+   const new_div = document.querySelector('.pagination');
    for(let i = 0; i < names.length; i++){
       let searched = names[i];
       searched.style.display = 'none';
-      searched.classList.remove('match');
-
+      
       if(searchInput.value.length !== 0 && searched.textContent.toLowerCase().includes(searchInput.value.toLowerCase())){
-         searched.className = 'match';
-         searched.style.display = 'block';
          search_results.push(searched);
       }
+      if(searchInput.value === ''){
+         searched.style.display = 'block';
+      }
    }
+   new_div.remove();
    append_page_links(search_results);
    show_page(search_results, 1);
 }
 
-search_button.addEventListener('click', (event) => {
+
+//An Event Listener that filters names as you type letters into the search box. 
+search.addEventListener('keyup', () => {
+   student_search(search, student_list);
+});
+
+//Search button
+button.addEventListener('click', (event) => {
    event.preventDefault();
-   student_search(search_input, student_list);
-   console.log(search_results);
+   student_search(search, student_list);
  });
+
+ 
