@@ -83,6 +83,8 @@ search_bar();
 //These global variables targeting the Search button & the search Input. 
 const button = document.querySelector('.student-search button');
 const search = document.querySelector('.student-search input');
+
+//Variables to create the Elements for the search 
 const page_div = document.querySelector('.page');
 const no_match = document.createElement('h3');
 page_div.appendChild(no_match);
@@ -104,13 +106,14 @@ const student_search = (searchInput, names) => {
       if(searchInput.value === ''){
          name_searched.style.display = 'block';
       }
-      if(search_results.length > 0){
-         no_match.style.display = '';
-      }else if(search_results.length === 0){
-         no_match.style.display = 'block';
-         no_match.textContent = 'Sorry, no match found.';
-      }
    }
+   if(search_results.length > 0){
+      no_match.style.display = '';
+   }else if(search_results.length === 0){
+      no_match.style.display = 'block';
+      no_match.textContent = 'Sorry, no match found.';
+   }
+
    new_div.remove();
    append_page_links(search_results);
    show_page(search_results, 1);
