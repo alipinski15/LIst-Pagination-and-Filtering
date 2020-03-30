@@ -59,11 +59,12 @@ const append_page_links = (list) => {
             li_active[j].classList.remove('active');
          } 
          e.target.className = 'active';
-         show_page(student_list, e.target.textContent);
+         show_page(list, e.target.textContent);
          e.preventDefault();
       });
    }
 } 
+
 // Calls the two functions and passes into them the list of students. 
 show_page(student_list, 1);
 append_page_links(student_list);
@@ -112,7 +113,7 @@ const student_search = (searchInput, names) => {
       }
    }
    if(search_results.length > 0){
-      no_match.style.display = '';
+      no_match.style.display = 'none';
    }else if(search_results.length === 0){
       no_match.style.display = 'block';
       no_match.textContent = 'Sorry, no match found.';
