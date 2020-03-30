@@ -102,7 +102,7 @@ const student_search = (searchInput, names) => {
    //Loops through the names list and targets the HTML of the 'student-details' DIV. 
    for(let i = 0; i < names.length; i++){
       const name_searched = names[i];
-      const variable_name = names[i].firstElementChild.children[1].innerHTML;
+      const variable_name = name_searched.firstElementChild.children[1].innerHTML;
       name_searched.style.display = 'none'
       
       if(variable_name.toLowerCase().includes(searchInput.value.toLowerCase())){

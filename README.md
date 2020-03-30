@@ -5,8 +5,10 @@ at a time. The last page only showing the remainder. Based on the amount of name
 
 The script needed to create this app:
     Global variables need to access within the functions.
-    Two functions 
+    Two functions  
         1. A function to take the amount of names given, and displays only ten per page. 
         2. A function that appends the elements necessary to the DOM to create the button links. Then
            cycles through the links making them active when pressed. 
     
+    A function that creates a search field and search button.
+    A function that filters student names in the search field and only displays the names with the matching letter. 
