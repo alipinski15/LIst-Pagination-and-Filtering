@@ -7,10 +7,6 @@ FSJS project 2 - List Filter and Pagination
 const student_list = document.querySelectorAll('.student-item');
 const students_per_page = 10;
 
-//These global variables targeting the Search button & the search Input. 
-const button = document.querySelector('.student-search button');
-const search = document.querySelector('.student-search input');
-
 //Variables to create the Elements if search has no results. 
 const page_div = document.querySelector('.page');
 const no_match = document.createElement('h3');
@@ -18,7 +14,7 @@ page_div.appendChild(no_match);
 
 
 // Function created to filter through the list of Students and set only 10 to be viewed per page.
-const show_page = (list, page) =>{
+const show_page = (list, page) => {
    const start_index = (page * students_per_page) - students_per_page;
    const end_index = (page * students_per_page) - 1;
 
@@ -93,6 +89,9 @@ const search_bar = () => {
 
 search_bar();
 
+//These global variables are selecting the elements for the Search button & the search Input. 
+const button = document.querySelector('.student-search button');
+const search = document.querySelector('.student-search input');
 
 //Function that allows for the search of names and only displays those names.
 const student_search = (searchInput, names) => {
