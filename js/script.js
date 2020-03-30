@@ -4,7 +4,7 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
    
 //Global variables 
-const student_list = document.getElementsByClassName('student-item cf');
+const student_list = document.querySelectorAll('.student-item');
 const students_per_page = 10;
 
 
@@ -12,6 +12,7 @@ const students_per_page = 10;
 const show_page = (list, page) =>{
    const start_index = (page * students_per_page) - students_per_page;
    const end_index = (page * students_per_page) - 1;
+
    for(let i = 0; i < list.length; i++){
       if ( i >= start_index && i <= end_index){
          list[i].style.display = '';
@@ -20,6 +21,8 @@ const show_page = (list, page) =>{
       }
    }
 }
+
+
 
 
 //Function to create New Elements to be appended to the DOM.
@@ -80,20 +83,32 @@ search_bar();
 //These global variables targeting the Search button & the search Input. 
 const button = document.querySelector('.student-search button');
 const search = document.querySelector('.student-search input');
+const page_div = document.querySelector('.page');
+const no_match = document.createElement('h3');
+page_div.appendChild(no_match);
+
 
 //Function that allows for the search of names and only displays those names.
 const student_search = (searchInput, names) => {
    const search_results = [];
    const new_div = document.querySelector('.pagination');
+   
    for(let i = 0; i < names.length; i++){
-      let searched = names[i];
-      searched.style.display = 'none';
+      const name_searched = names[i];
+      const variable_name = names[i].firstElementChild.children[1].innerHTML;
+      name_searched.style.display = 'none'
       
-      if(searchInput.value.length !== 0 && searched.textContent.toLowerCase().includes(searchInput.value.toLowerCase())){
-         search_results.push(searched);
+      if(variable_name.toLowerCase().includes(searchInput.value.toLowerCase())){
+         search_results.push(name_searched);
       }
       if(searchInput.value === ''){
-         searched.style.display = 'block';
+         name_searched.style.display = 'block';
+      }
+      if(search_results.length > 0){
+         no_match.style.display = '';
+      }else if(search_results.length === 0){
+         no_match.style.display = 'block';
+         no_match.textContent = 'Sorry, no match found.';
       }
    }
    new_div.remove();
