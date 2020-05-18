@@ -1,5 +1,5 @@
 body{
-  background-color: #e1f1f6;
+  background-color: #0e0e0e;
   font-family: Helvetica, sans-serif;
   color: #222;
 }
@@ -7,7 +7,7 @@ body{
 .page{
   margin: 50px auto;
   width: 70%;
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 50px;
 }
@@ -20,7 +20,7 @@ body{
     font-size: 22px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #555;
+    color: rgb(167, 167, 167);
   }
 
   .page-header .student-search{
@@ -29,14 +29,16 @@ body{
 
     .page-header .student-search input{
       border-radius: 5px;
-      border: 1px solid #eaeaea;
+      background-color: #555555;
+      color: #fff;
+      border: none;
       padding: 8px 15px;
       font-size: 14px;
     }
 
     .page-header .student-search button{
       border-radius: 5px;
-      border: 1px solid #eaeaea;
+      border: none;
       padding: 8px 15px;
       font-size: 14px;
       background-color: #4ba6c3;
@@ -48,7 +50,7 @@ body{
   .student-item{
     margin: 0 0 20px 0;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #555555;
   }
 
     .student-details{
@@ -105,7 +107,7 @@ body{
   }
 
     .pagination li a{
-      border: 1px solid #eaeaea;
+      border: 1px solid #363636;
       border-radius: 5px;
       padding: 3px 8px;
       text-decoration: none;

@@ -83,9 +83,9 @@ const search_bar = () => {
    search_div.appendChild(search_input);
 
    // Creates 'button element with the class 'search' and appends it to the 'search_div'.
-   const search_button = document.createElement('button');
-   search_button.textContent = 'Search';
-   search_div.appendChild(search_button);
+   // const search_button = document.createElement('button');
+   // search_button.textContent = 'Search';
+   // search_div.appendChild(search_button);
 }
 
 search_bar();
@@ -117,6 +117,7 @@ const student_search = (searchInput, names) => {
    }else if(search_results.length === 0){
       no_match.style.display = 'block';
       no_match.textContent = 'Sorry, no match found.';
+      no_match.style.color = '#dd5050';
    }
 
    new_div.remove();
@@ -131,9 +132,9 @@ search.addEventListener('keyup', () => {
 });
 
 //Search button
-button.addEventListener('click', (event) => {
-   event.preventDefault();
-   student_search(search, student_list);
- });
+// button.addEventListener('click', (event) => {
+//    event.preventDefault();
+//    student_search(search, student_list);
+//  });
 
  
